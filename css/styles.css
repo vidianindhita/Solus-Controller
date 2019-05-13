@@ -44,7 +44,7 @@ body {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 90px;
+    margin-top: 70px;
 }
 
 input[type=checkbox]{
@@ -100,7 +100,7 @@ label:active:after {
   border-radius: 50px;
   width: 200px;
   height: 80px;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 24px;
   font-family: inherit;
   font-style: inherit;
@@ -117,7 +117,7 @@ label:active:after {
 
 #buttons {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
 }

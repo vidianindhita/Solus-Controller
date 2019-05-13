@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+        <meta charset="utf-8">
+        <title>Solus Controller</title>
+	</head>
+	<body>
+		<div class="container">
+			<div id="solus-logo">
+				<img id="image-logo" src="assets/logo-black.png" alt="logo-black">
+			</div>
+			<div id="toggle-switch">
+				<input type="checkbox" id="switch" class="toggle-notification"/>
+				<label for="switch">Toggle</label>
+			</div>
+			<div id="buttons">
+				<button class="btn message" id="btn_message">
+					Message
+                </button></br>
+                <button class="btn message" id="btn_relase">
+					Release
+                </button> 
+			</div>
+		</div>
+		<script type="text/javascript">
+			
+            $(document).ready(function () {
+                $(".toggle-notification").click(function () {
+                    if ($(this).is(":checked")) {
+                        $('.message').css("background-color", "#00385F");
+                        //$('.release').css("background-color", "#00385F");
+                        $.post("https://staging.vidia.site/device-1/on", function(data, status){
+                            //alert("Data: " + data + "\nStatus: " + status);
+                        });
+                    } else {
+                        $('.message').css("background-color", "gray");
+                        //$('.relase').css("background-color", "gray");
+                        $.post("https://staging.vidia.site/device-1/off", function(data, status){
+                            //alert("Data: " + data + "\nStatus: " + status);
+                        });
+                    }
+                });
+            });
+
+            $(document).ready(function(){
+                $("#btn_message").click(function(){
+                    $.post("https://staging.vidia.site/device-1/message", function(data, status){
+                            //alert("Data: " + data + "\nStatus: " + status);
+                    });
+                });
+            });
+
+            $(document).ready(function(){
+                $("#btn_relase").click(function(){
+                    $.post("https://staging.vidia.site/device-1/release", function(data, status){
+                            //alert("Data: " + data + "\nStatus: " + status);
+                    });
+                });
+            });
+		</script>
+	</body>
+</html>
